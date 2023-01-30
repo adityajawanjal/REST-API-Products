@@ -1,6 +1,7 @@
 const express = require("express");
 const connectDB = require("./db/conn");
 const product_routes = require("./routes/products");
+const user_routes = require("./routes/user");
 
 const app = express();
 app.use(express.json());
@@ -10,6 +11,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/products", product_routes);
+app.use("/api/users", user_routes);
 
 const port = process.env.PORT || 5000;
 const startServer = async () => {
